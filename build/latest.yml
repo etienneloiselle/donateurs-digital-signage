@@ -1,0 +1,9 @@
+version: 0.0.0
+files:
+  - url: donateurs-setup-0.0.0.exe
+    sha512: 0Jw40otsnbZ6rF9rD9L4dpKmp90/SlCfwy2F1XfQVBLNGdCJuvLEAzABmxaU2g9WFAWLYVf0KsZaefXqWCcaNA==
+    size: 36173488
+path: donateurs-setup-0.0.0.exe
+sha512: 0Jw40otsnbZ6rF9rD9L4dpKmp90/SlCfwy2F1XfQVBLNGdCJuvLEAzABmxaU2g9WFAWLYVf0KsZaefXqWCcaNA==
+sha2: 51e6d0520fd95868b71523933d82b3e9b196c5013d56eed32f755d4778161dcf
+releaseDate: '2018-07-17T18:58:32.258Z'

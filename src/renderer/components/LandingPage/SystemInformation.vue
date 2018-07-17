@@ -1,31 +1,46 @@
 <template>
-  <ul v-if="posts && posts.length">
-    <li v-for="post of posts">
-      <p><strong>{{post.title}}</strong></p>
-      <p>{{post.body}}</p>
-    </li>
-  </ul>
+  <div v-if="donateurs && donateurs.length">
+    <div v-for="donateur of donateurs">
+      <p><strong>{{donateur.prenom}} {{donateur.nom}}</strong></p>
+      <p>{{donateur.montant}}</p>
+    </div>
+  </div>
 </template>
 
 <script>
   import axios from 'axios'
-
+  console.log('bob')
   export default {
     data () {
       return {
-        posts: [],
+        donateurs: [],
         errors: []
       }
     },
-    created () {
-      axios.get(`http://jsonplaceholder.typicode.com/posts`)
-        .then(response => {
+    created: function () {
+      this.fetchEventsList()
+      this.timer = setInterval(this.fetchEventsList, 10000)
+    },
+    methods: {
+      fetchEventsList: function () {
+        console.log('Fetching from api...')
+        axios({
+          method: 'get',
+          crossDomain: true,
+          url: 'http://www.etienneloiselle.com/donateur/donateurs.json'
+        }).then(response => {
           // JSON responses are automatically parsed.
-          this.posts = response.data
+          console.log(response.data)
+          this.donateurs = response.data
         })
-        .catch(e => {
-          // this.errors.push(e)
-        })
+          .catch(e => {
+            // this.errors.push(e)
+          })
+      },
+      cancelAutoUpdate: function () { clearInterval(this.timer) }
+    },
+    beforeDestroy () {
+      clearInterval(this.timer)
     }
 }
 </script>

@@ -16,13 +16,13 @@ const winURL = process.env.NODE_ENV === 'development'
   : `file://${__dirname}/index.html`
 
 function createWindow () {
-  /**
-   * Initial window options
-   */
+  /* Initial window options */
   mainWindow = new BrowserWindow({
     height: 563,
+    kiosk: true,
     useContentSize: true,
-    width: 1000
+    width: 1000,
+    frame: false
   })
 
   mainWindow.loadURL(winURL)
